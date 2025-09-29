@@ -1,20 +1,30 @@
-name: Makefile CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+name: Build LaTeX Document
+on: [push]
 
 jobs:
-  build:
-
+  build_latex:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Make
-      run: make
+      - name: Cache LaTeX environment
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/texlive
+          key: texlive-${{ runner.os }}-${{ hashFiles('**/latex-version.txt') }}
+          restore-keys: |
+            texlive-${{ runner.os }}-
 
-
+      - name: Compile LaTeX document with latexmk
+        uses: xu-cheng/latex-action@v2
+        with:
+          # Core Compilation Settings
+          root_file: book.tex
+          compiler: latexmk
+          args: -pdf -file-line-error -interaction=nonstopmode
+          # Enable caching for the TeX Live installation
+          cache: true
+          # Optional: Pre-compile step to ensure all dependencies are installed
+          pre_compile: |
+            tlmgr update --self
