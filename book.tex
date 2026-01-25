@@ -8,10 +8,10 @@
 \usepackage{ptmt}
 
 % Set the title of the book.
-\title{Name of the Book}
+\title{Relational Philosophy and Science: Towards Relational Existence}
 
 % Set the authors of the book (multiple authors separated by \and).
-\author{First Author \and Second Author}
+\author{Anonymous Author (s)}
 
 % Set the date to the current date.
 \date{\today}
@@ -23,25 +23,12 @@
 \frontmatter
 
 % Include the title page, which is located in the FrontMatter subfolder.
-\include{./FrontMatter/titlepage}
+\include{partials/FrontMatter/titlepage}
 
 % Create the book's title page.
 \maketitle\pagebreak
 
-% Include the dedication page from the FrontMatter subfolder.
-\include{./FrontMatter/dedication}
-
-% Include the epigraph page from the FrontMatter subfolder.
-\include{./FrontMatter/epigraph}
-
-% Include the foreword page from the FrontMatter subfolder.
-\include{./FrontMatter/foreword}
-
-% Include the preface page from the FrontMatter subfolder.
-\include{./FrontMatter/preface}
-
-% Include the acknowledgement page from the FrontMatter subfolder.
-\include{./FrontMatter/acknowledgement}
+\input{./partials/pre_main_contents/pre_main_contents.tex}
 
 % Table of contents page.
 \tableofcontents
@@ -53,31 +40,10 @@
 \part{Preliminaries}
 
 % Include Chapter 1 from the MainMatter subfolder.
-\include{./MainMatter/Chapter1}
+\include{./partials/main/chapter_1/Chapter1.tex}
 
-% Appendices section.
-\appendix
 
-% Include the "about" appendix from the BackMatter subfolder.
-\include{./BackMatter/about}
-
-% Include the "abbreviation" appendix from the BackMatter subfolder.
-\include{./BackMatter/abbreviation}
-
-% Include the "notation" appendix from the BackMatter subfolder.
-\include{./BackMatter/notation}
-
-% Include the "code" appendix from the BackMatter subfolder.
-\include{./BackMatter/code}
-
-% Include the "glossary" appendix from the BackMatter subfolder.
-\include{./BackMatter/glossary}
-
-% Include the "index" appendix from the BackMatter subfolder.
-\include{./BackMatter/index}
-
-% Include the "references" appendix from the BackMatter subfolder.
-\include{./BackMatter/references}
+\input{partials/appendix/appendix_main.tex}
 
 % End the document.
 \end{document}
