@@ -1,49 +1,64 @@
-% Document class with options: openright - chapters start on right-hand pages, twoside - two-sided layout, british - using British English language settings.
-\documentclass[openright, twoside, british]{book}
+%%%%%%%%%%%%%%%% Springer Nature %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Load the blindtext package, which provides commands for generating dummy text.
-\usepackage{blindtext}
 
-% Load the ptmt package, presumably for formatting.
-\usepackage{ptmt}
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox,envcountchap,sectrefs]{SNmono}
 
-% Set the title of the book.
-\title{Relational Philosophy and Science: Towards Relational Existence}
+%\usepackage{mathptmx}
+%\usepackage{helvet}
+%\usepackage{courier}
+\usepackage{type1cm}         
 
-% Set the authors of the book (multiple authors separated by \and).
-\author{Anonymous Author (s)}
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
 
-% Set the date to the current date.
-\date{\today}
+\usepackage{newtxtext}       % 
+\usepackage[varvw]{newtxmath}       % selects Times Roman as basic font
 
-% Begin the document.
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
-% Front matter section.
-\frontmatter
+\author{Wanhong HUANG}
+\title{Relational Philosophy and Science}
+\subtitle{-- Towards Relational Existence --}
+\maketitle
 
-% Include the title page, which is located in the FrontMatter subfolder.
-\include{partials/FrontMatter/titlepage}
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Create the book's title page.
-\maketitle\pagebreak
+\input{partials/frontmatter/dedication}
+\input{partials/frontmatter/foreword}
+\input{partials/frontmatter/preface}
+\input{partials/frontmatter/acknow}
+\input{partials/frontmatter/ethics}
 
-\input{./partials/pre_main_contents/pre_main_contents.tex}
-
-% Table of contents page.
 \tableofcontents
 
-% Main matter section.
-\mainmatter
-
-% Part 1: Preliminaries.
-\part{Preliminaries}
-
-% Include Chapter 1 from the MainMatter subfolder.
-\include{./partials/main/chapter_1/Chapter1.tex}
+\input{partials/acronym}
 
 
-\input{partials/appendix/appendix_main.tex}
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{partials/main/part}
+\input{partials/main/chapter}
+\input{partials/main/appendix}
 
-% End the document.
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{partials/backmatter/glossary}
+\input{partials/backmatter/solutions}
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
+
+
+
+
+
